@@ -14,6 +14,7 @@
 
 git clone https://github.com/NCAR/container-dtc-met
 cd ./container-dtc-met/met
+git checkout tags/met-5.2
 docker build -t met-5.2-tutorial .
 
 #
