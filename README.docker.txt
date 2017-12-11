@@ -14,7 +14,7 @@
 
 git clone https://github.com/NCAR/container-dtc-met
 cd container-dtc-met/MET
-docker build -t met-6.1 .
+docker build -t met-6.0 .
 
 #
 # Rather than writing the MET tutorial data in the docker environment, we will write it to your
@@ -35,9 +35,9 @@ curl -SL http://www.dtcenter.org/met/users/support/online_tutorial/tutorial_data
 #
 
 docker run -it --rm \
- -v ${MET_TUTORIAL_DIR}/MET_Tutorial:/met/met-6.1/MET_Tutorial \
- --name met-6.1-tutorial met-6.1 /bin/bash
-cd /met/met-6.1
+ -v ${MET_TUTORIAL_DIR}/MET_Tutorial:/met/met-6.0/MET_Tutorial \
+ --name met-6.0-tutorial met-6.0 /bin/bash
+cd /met/met-6.0
 
 #
 # Open a browser and navigate to the MET online tutorial:
@@ -51,7 +51,7 @@ cd /met/met-6.1
 # You may skip over all steps in the "Compilation" section.
 #
 # * NOTE * that in the docker environment...
-#   - All tutorial commands should be run from the /met/met-6.1 directory.
+#   - All tutorial commands should be run from the /met/met-6.0 directory.
 #   - MET is installed in /usr/local/bin.
 #   - MET creates PostScript ouput image which may be difficult to view on your local machine.
 #     The convert or ps2pdf may be used to convert PostScript images to PDF or other image file formats.
