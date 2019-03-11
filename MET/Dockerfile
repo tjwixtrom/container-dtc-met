@@ -19,7 +19,7 @@ ENV F77 /usr/bin/gfortran
 # Package URL's
 #
 ENV HDF4_URL       http://www.hdfgroup.org/ftp/HDF/releases/HDF4.2r3/src/HDF4.2r3.tar.gz
-ENV HDFEOS_URL     ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos/previous_releases/HDF-EOS2.16v1.00.tar.Z
+ENV HDFEOS_URL     http://www.dtcenter.org/met/users/support/online_tutorial/docker_data/HDF-EOS2.16v1.00.tar.Z
 
 ENV NETCDF4C_URL   https://github.com/Unidata/netcdf-c/archive/v4.4.1.1.zip
 ENV NETCDF4CXX_URL https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz
