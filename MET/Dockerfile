@@ -1,11 +1,11 @@
-FROM centos:latest
+FROM centos:7
 MAINTAINER John Halley Gotway <johnhg@ucar.edu>
 
 # 
 # This Dockerfile compiles MET from source during "docker build" step
 #
-ENV MET_VERSION 8.1.1
-ENV MET_RELEASE_DATE 20190708
+ENV MET_VERSION 8.1.2
+ENV MET_RELEASE_DATE 20191031
 
 #
 # Compilers
