@@ -4,12 +4,10 @@ MAINTAINER John Halley Gotway <johnhg@ucar.edu>
 # 
 # This Dockerfile compiles MET from source during "docker build" step
 #
-#ENV MET_VERSION 8.1
-#ENV MET_RELEASE_DATE 20190503
-#ENV MET_VERSION 8.1.1
-#ENV MET_RELEASE_DATE 20190708
-ENV MET_VERSION 8.1.2
-ENV MET_RELEASE_DATE 20191031
+ENV MET_VERSION 8.1.1
+ENV MET_RELEASE_DATE 20190708
+#ENV MET_VERSION 8.1.2
+#ENV MET_RELEASE_DATE 20191031
 
 #
 # Compilers
@@ -31,8 +29,7 @@ ENV NETCDF4CXX_URL https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz
 ENV BUFRLIB_URL    http://www.dtcenter.org/met/users/support/online_tutorial/docker_data/BUFRLIB_v10-2-3.tar
 ENV GSFONT_URL     http://www.dtcenter.org/met/users/support/online_tutorial/docker_data/ghostscript-fonts-std-8.11.tar.gz
 
-ENV MET_URL        http://www.dtcenter.org/met/users/downloads/MET_releases/met-${MET_VERSION}.${MET_RELEASE_DATE}.tar.gz
-ENV PATCH_URL      http://www.dtcenter.org/met/users/support/known_issues/METv${MET_VERSION}/patches/met-${MET_VERSION}_patches_latest.tar.gz
+ENV MET_URL        https://dtcenter.org/sites/default/files/community-code/met/met-${MET_VERSION}.${MET_RELEASE_DATE}.tar.gz
 
 #
 # Install required packages
@@ -139,12 +136,10 @@ RUN echo "Downloading HDF4.2r3 from ${HDF4_URL}" \
  && make install > ${LOG_FILE}
 
 #
-# Download and compile MET source code and patches
+# Download and compile MET source code
 #
 RUN echo "Downloading met-${MET_VERSION} from ${MET_URL}" \
  && curl -SL ${MET_URL} | tar zxC /met \
- && echo "Downloading met-${MET_VERSION} patches from ${PATCH_URL}" \
- && curl -SL ${PATCH_URL} | tar zxC /met/met-${MET_VERSION} \
  && cd /met/met-${MET_VERSION} \
  && LOG_FILE=/met/met-${MET_VERSION}/configure.log \
  && echo "Configuring met-${MET_VERSION} and writing log file ${LOG_FILE}" \
@@ -160,4 +155,3 @@ RUN echo "Downloading met-${MET_VERSION} from ${MET_URL}" \
  && LOG_FILE=/met/met-${MET_VERSION}/make_test.log \
  && echo "Testing met-${MET_VERSION} and writing log file ${LOG_FILE}" \
  && make test > ${LOG_FILE} 2>&1
-
